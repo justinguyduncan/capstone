@@ -1,6 +1,6 @@
  # MVP List
 
-Beam is a youtube Clone that is geared toward gaming and (hopefully streaming)
+GamerSquare is a youtube Clone that is geared toward gaming and (hopefully streaming)
 
 ## Users(Full)
 
