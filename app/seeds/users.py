@@ -16,7 +16,7 @@ def seed_users():
         username = 'Reaper4G', email = 'john@aa.io', password = 'password')
 
     db.session.add(demo)
-     db.session.add(justin)
+    db.session.add(justin)
     db.session.add(rajheem)
     db.session.add(chris)
     db.session.add(john)
