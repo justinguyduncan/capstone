@@ -1,5 +1,5 @@
 from datetime import datetime
-from .db import db
+from .db import db, environment, SCHEMA
 
 class Channel(db.Model):
     __tablename__ = 'channels'
@@ -15,7 +15,7 @@ class Channel(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     user = db.relationship('User', back_populates='channels')
-
+    vods = db.relationship('VOD', back_populates='channel')
 
     def to_dict(self):
         return {

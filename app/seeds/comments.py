@@ -45,6 +45,9 @@ def seed_comments():
 
 
 def undo_comments():
-    # Remove all comments from the database
-    Comment.query.delete()
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute(text("DELETE FROM comments"))
+
     db.session.commit()

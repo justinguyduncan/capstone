@@ -1,5 +1,5 @@
 from datetime import datetime
-from .db import db
+from .db import db, environment, SCHEMA
 
 class Comment(db.Model):
     __tablename__ = 'comments'
