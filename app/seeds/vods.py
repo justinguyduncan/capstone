@@ -1,5 +1,6 @@
 from app.models import db, Channel, VOD
-from aws import upload_file_to_s3
+from ..aws import upload_file_to_s3, remove_file_from_s3
+
 
 # Function to seed VODs
 def seed_vods():
@@ -88,3 +89,12 @@ def seed_vods():
 
 if __name__ == "__main__":
     seed_vods()
+
+
+def undo_vods():
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.vods RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute(text("DELETE FROM vods"))
+
+    db.session.commit()
