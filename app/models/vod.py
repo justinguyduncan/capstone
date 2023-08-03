@@ -1,5 +1,5 @@
 from datetime import datetime
-from .db import db
+from .db import db, environment, SCHEMA
 
 class VOD(db.Model):
     __tablename__ = 'vods'
@@ -11,12 +11,11 @@ class VOD(db.Model):
     channel_id = db.Column(db.Integer, db.ForeignKey('channels.id'), nullable=False)
     title = db.Column(db.String(255))
     description = db.Column(db.String(255))
-    tags = db.Column(db.String(255))
     upload_time = db.Column(db.DateTime, default=datetime.utcnow)
     video_url = db.Column(db.String(255))
 
     channel = db.relationship('Channel', back_populates='vods')
-
+    comments = db.relationship('Comment', back_populates='vod')
     def to_dict(self):
         return {
             'id': self.id,
