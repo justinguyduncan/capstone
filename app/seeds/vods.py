@@ -95,6 +95,6 @@ def undo_vods():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.vods RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM vods"))
+        db.session.execute("DELETE FROM vods")
 
     db.session.commit()

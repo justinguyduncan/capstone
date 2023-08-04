@@ -19,6 +19,6 @@ def undo_subscribers():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.subscribers RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM subscribers"))
+        db.session.execute("DELETE FROM subscribers")
 
     db.session.commit()
