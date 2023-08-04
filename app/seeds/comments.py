@@ -1,4 +1,4 @@
-from app.models import db, Comment, VOD, User
+from app.models import db, Comment, VOD, User, environment, SCHEMA
 import random
 import datetime
 
