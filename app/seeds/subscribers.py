@@ -1,4 +1,4 @@
-from app.models import db, User, Channel, Subscriber
+from app.models import db, User, Channel, Subscriber, environment, SCHEMA
 
 def seed_subscribers():
 

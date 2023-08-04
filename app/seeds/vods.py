@@ -1,4 +1,4 @@
-from app.models import db, Channel, VOD
+from app.models import db, Channel, VOD, environment, SCHEMA
 from ..aws import upload_file_to_s3, remove_file_from_s3
 
 
