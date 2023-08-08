@@ -2,13 +2,6 @@ from app.models import db, User, Channel, environment, SCHEMA
 
 # Function to seed channels
 def seed_channels():
-    # # Get user objects for the channel owners
-    # demo_user = User.query.filter_by(username='Demo').first()
-    # justin_user = User.query.filter_by(username='TruePr0tege').first()
-    # rajheem_user = User.query.filter_by(username='DV Bigred1').first()
-    # chris_user = User.query.filter_by(username='DUNC').first()
-    # john_user = User.query.filter_by(username='Reaper4G').first()
-
     # Create sample channels
     demo_channel = Channel(
         user_id=1,
