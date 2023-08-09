@@ -1,5 +1,5 @@
 from datetime import datetime
-from .db import db, environment, SCHEMA
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class VOD(db.Model):
     __tablename__ = 'vods'
@@ -8,7 +8,7 @@ class VOD(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    channel_id = db.Column(db.Integer, db.ForeignKey('channels.id'), nullable=False)
+    channel_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('channels.id')), nullable=False)
     title = db.Column(db.String(255))
     description = db.Column(db.String(255))
     upload_time = db.Column(db.DateTime, default=datetime.utcnow)
